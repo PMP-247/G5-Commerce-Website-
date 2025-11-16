@@ -1,48 +1,63 @@
 import { Link } from "react-router-dom";
+import { Home, Info, Mail, ShoppingCart, LogOut } from "lucide-react";
 
-// Fixed: Changed from 'const Navbar = () => { ... }; export default Navbar;'
-// to 'export default function Navbar() { ... }'
-export default function Navbar() {
+export default function Sidebar() {
     return (
-        <header className="bg-white shadow-md sticky top-0 z-10">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between items-center h-16">
-                    <div className="flex-shrink-0">
-                        <Link
-                            to="/"
-                            className="text-2xl font-bold text-indigo-600"
-                        >
-                            MyApp Logo
-                        </Link>
-                    </div>
-                    <nav className="flex space-x-4">
-                        <Link
-                            to="/"
-                            className="text-gray-600 hover:text-indigo-600 transition duration-150"
-                        >
-                            Home
-                        </Link>
-                        <Link
-                            to="/about"
-                            className="text-gray-600 hover:text-indigo-600 transition duration-150"
-                        >
-                            About
-                        </Link>
-                        <Link
-                            to="/contact"
-                            className="px-3 py-1 rounded-md text-white bg-indigo-600 hover:bg-indigo-700 transition duration-150"
-                        >
-                            Contact
-                        </Link>
-                        <Link
-                            to="/cart"
-                            className="px-3 py-1 rounded-md text-white bg-green-600 hover:bg-green-700 transition duration-150"
-                        >
-                            Cart
-                        </Link>
-                    </nav>
+        <aside className="fixed top-0 left-0 h-screen w-20 bg-white flex flex-col justify-between items-center py-2 px-4 gap-2 shadow-lg z-20 rounded-lg">
+            {/* Logo */}
+            <div className="flex flex-col items-center gap-4 mt-2">
+                <div className="bg-white rounded-md p-2 flex items-center justify-center w-10 h-10 shadow">
+                    <span className="text-green-700 font-bold text-xl">G5</span>
                 </div>
             </div>
-        </header>
+            {/* Nav Links */}
+            <nav className="flex flex-col items-center gap-8 mt-8 flex-1">
+                <Link
+                    to="/"
+                    className="bg-gray-900 rounded-lg w-10 h-10 flex items-center justify-center group"
+                >
+                    <Home
+                        className="text-white group-hover:text-green-700 transition"
+                        size={24}
+                    />
+                </Link>
+                <Link
+                    to="/about"
+                    className="bg-gray-900 rounded-lg w-10 h-10 flex items-center justify-center group"
+                >
+                    <Info
+                        className="text-white group-hover:text-green-700 transition"
+                        size={24}
+                    />
+                </Link>
+                <Link
+                    to="/contact"
+                    className="bg-gray-900 rounded-lg w-10 h-10 flex items-center justify-center group"
+                >
+                    <Mail
+                        className="text-white group-hover:text-green-700 transition"
+                        size={24}
+                    />
+                </Link>
+                <Link
+                    to="/cart"
+                    className="bg-green-600 rounded-lg w-10 h-10 flex items-center justify-center group"
+                >
+                    <ShoppingCart
+                        className="text-white group-hover:text-white transition"
+                        size={24}
+                    />
+                </Link>
+            </nav>
+            {/* Bottom Link (Logout) */}
+            <div className="mb-4">
+                <button className="bg-red-600 rounded-lg w-10 h-10 flex items-center justify-center group">
+                    <LogOut
+                        className="text-white group-hover:text-gray-900 transition"
+                        size={24}
+                    />
+                </button>
+            </div>
+        </aside>
     );
 }

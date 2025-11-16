@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/cartSlice";
-import Navbar from "./Navbar";
+import Sidebar from "./Navbar";
 import Footer from "./Footer";
 import Main from "./Main";
 
@@ -20,9 +20,9 @@ const Dashboard = () => {
     };
 
     return (
-        <div className="min-h-screen flex flex-col">
-            <Navbar />
-            <main className="flex-1">
+        <div className="min-h-screen flex">
+            <Sidebar />
+            <main className="flex-1 ml-20">
                 <section className="mx-auto w-full max-w-5xl px-4 py-6">
                     <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800">
                         <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
