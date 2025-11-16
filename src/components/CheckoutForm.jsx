@@ -1,14 +1,27 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { clearCart } from "../redux/cartSlice";
 import OrderSummary from "./OrderSummary";
 
 const ShippingForm = ({ values, onChange, errors, submitted }) => (
-    <div className="mb-6">
-        <h3 className="text-xl font-semibold mb-2">Shipping Information</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div className="flex flex-col items-start p-4 gap-2 bg-white rounded-[13px]">
+        <div className="w-full flex items-center justify-between px-2 py-2">
+            <h3 className="text-[31.25px] leading-[38px] tracking-[0.25em] uppercase text-[#1A1F16]">
+                Shipping Address
+            </h3>
+            <button
+                type="button"
+                className="box-border inline-flex justify-center items-center px-6 py-2 gap-2 border border-[#1A1F16] rounded-[11px] text-[16px] leading-[19px] text-[#1A1F16]"
+            >
+                Change
+            </button>
+        </div>
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-                <label htmlFor="name" className="block mb-1">
+                <label
+                    htmlFor="name"
+                    className="block mb-1 text-[20px] leading-6 text-[#1A1F16]"
+                >
                     Full Name
                 </label>
                 <input
@@ -16,7 +29,7 @@ const ShippingForm = ({ values, onChange, errors, submitted }) => (
                     name="name"
                     value={values.name}
                     onChange={onChange}
-                    className="w-full border rounded p-2"
+                    className="w-full border border-[#60695C] rounded-[9px] p-2 text-[20px] leading-6 text-[#1A1F16]"
                     required
                 />
                 {submitted && errors.name && (
@@ -26,7 +39,10 @@ const ShippingForm = ({ values, onChange, errors, submitted }) => (
                 )}
             </div>
             <div>
-                <label htmlFor="address" className="block mb-1">
+                <label
+                    htmlFor="address"
+                    className="block mb-1 text-[20px] leading-6 text-[#1A1F16]"
+                >
                     Address
                 </label>
                 <input
@@ -34,7 +50,7 @@ const ShippingForm = ({ values, onChange, errors, submitted }) => (
                     name="address"
                     value={values.address}
                     onChange={onChange}
-                    className="w-full border rounded p-2"
+                    className="w-full border border-[#60695C] rounded-[9px] p-2 text-[20px] leading-6 text-[#1A1F16]"
                     required
                 />
                 {submitted && errors.address && (
@@ -44,7 +60,10 @@ const ShippingForm = ({ values, onChange, errors, submitted }) => (
                 )}
             </div>
             <div>
-                <label htmlFor="city" className="block mb-1">
+                <label
+                    htmlFor="city"
+                    className="block mb-1 text-[20px] leading-6 text-[#1A1F16]"
+                >
                     City
                 </label>
                 <input
@@ -52,7 +71,7 @@ const ShippingForm = ({ values, onChange, errors, submitted }) => (
                     name="city"
                     value={values.city}
                     onChange={onChange}
-                    className="w-full border rounded p-2"
+                    className="w-full border border-[#60695C] rounded-[9px] p-2 text-[20px] leading-6 text-[#1A1F16]"
                     required
                 />
                 {submitted && errors.city && (
@@ -62,7 +81,10 @@ const ShippingForm = ({ values, onChange, errors, submitted }) => (
                 )}
             </div>
             <div>
-                <label htmlFor="postal" className="block mb-1">
+                <label
+                    htmlFor="postal"
+                    className="block mb-1 text-[20px] leading-6 text-[#1A1F16]"
+                >
                     Postal Code
                 </label>
                 <input
@@ -70,7 +92,7 @@ const ShippingForm = ({ values, onChange, errors, submitted }) => (
                     name="postal"
                     value={values.postal}
                     onChange={onChange}
-                    className="w-full border rounded p-2"
+                    className="w-full border border-[#60695C] rounded-[9px] p-2 text-[20px] leading-6 text-[#1A1F16]"
                     required
                 />
                 {submitted && errors.postal && (
@@ -84,11 +106,24 @@ const ShippingForm = ({ values, onChange, errors, submitted }) => (
 );
 
 const PaymentForm = ({ values, onChange, errors, submitted }) => (
-    <div className="mb-6">
-        <h3 className="text-xl font-semibold mb-2">Payment Information</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div className="flex flex-col items-start p-4 gap-2 bg-white rounded-[13px]">
+        <div className="w-full flex items-center justify-between px-2 py-2">
+            <h3 className="text-[31.25px] leading-[38px] tracking-[0.25em] uppercase text-[#1A1F16]">
+                Payment Method
+            </h3>
+            <button
+                type="button"
+                className="box-border inline-flex justify-center items-center px-6 py-2 gap-2 border border-[#1A1F16] rounded-[11px] text-[16px] leading-[19px] text-[#1A1F16]"
+            >
+                Change
+            </button>
+        </div>
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-                <label htmlFor="card" className="block mb-1">
+                <label
+                    htmlFor="card"
+                    className="block mb-1 text-[20px] leading-6 text-[#1A1F16]"
+                >
                     Card Number
                 </label>
                 <input
@@ -96,7 +131,7 @@ const PaymentForm = ({ values, onChange, errors, submitted }) => (
                     name="card"
                     value={values.card}
                     onChange={onChange}
-                    className="w-full border rounded p-2"
+                    className="w-full border border-[#60695C] rounded-[9px] p-2 text-[20px] leading-6 text-[#1A1F16]"
                     required
                 />
                 {submitted && errors.card && (
@@ -106,7 +141,10 @@ const PaymentForm = ({ values, onChange, errors, submitted }) => (
                 )}
             </div>
             <div>
-                <label htmlFor="expiry" className="block mb-1">
+                <label
+                    htmlFor="expiry"
+                    className="block mb-1 text-[20px] leading-6 text-[#1A1F16]"
+                >
                     Expiry Date
                 </label>
                 <input
@@ -114,7 +152,7 @@ const PaymentForm = ({ values, onChange, errors, submitted }) => (
                     name="expiry"
                     value={values.expiry}
                     onChange={onChange}
-                    className="w-full border rounded p-2"
+                    className="w-full border border-[#60695C] rounded-[9px] p-2 text-[20px] leading-6 text-[#1A1F16]"
                     required
                 />
                 {submitted && errors.expiry && (
@@ -124,7 +162,10 @@ const PaymentForm = ({ values, onChange, errors, submitted }) => (
                 )}
             </div>
             <div>
-                <label htmlFor="cvv" className="block mb-1">
+                <label
+                    htmlFor="cvv"
+                    className="block mb-1 text-[20px] leading-6 text-[#1A1F16]"
+                >
                     CVV
                 </label>
                 <input
@@ -132,7 +173,7 @@ const PaymentForm = ({ values, onChange, errors, submitted }) => (
                     name="cvv"
                     value={values.cvv}
                     onChange={onChange}
-                    className="w-full border rounded p-2"
+                    className="w-full border border-[#60695C] rounded-[9px] p-2 text-[20px] leading-6 text-[#1A1F16]"
                     required
                 />
                 {submitted && errors.cvv && (
@@ -141,6 +182,17 @@ const PaymentForm = ({ values, onChange, errors, submitted }) => (
                     </span>
                 )}
             </div>
+        </div>
+        <div className="w-full flex items-center gap-2 mt-2 text-[20px] leading-6 text-[#1A1F16]">
+            <input
+                id="billingSame"
+                type="checkbox"
+                className="w-4 h-4 border border-[#60695C] rounded-[2px]"
+                defaultChecked
+            />
+            <label htmlFor="billingSame">
+                Billing address same as Shipping Address
+            </label>
         </div>
     </div>
 );
@@ -156,6 +208,7 @@ const CheckoutForm = () => {
     const [errors, setErrors] = useState({});
     const [submitted, setSubmitted] = useState(false);
     const dispatch = useDispatch();
+    const items = useSelector((state) => state.cart.items);
 
     const handleShippingChange = (e) => {
         setShipping({ ...shipping, [e.target.name]: e.target.value });
@@ -188,29 +241,77 @@ const CheckoutForm = () => {
     };
 
     return (
-        <div className="max-w-3xl mx-auto p-8 bg-white rounded shadow">
-            <h2 className="text-2xl font-bold mb-6">Checkout</h2>
-            <form onSubmit={handleSubmit} noValidate>
-                <ShippingForm
-                    values={shipping}
-                    onChange={handleShippingChange}
-                    errors={errors}
-                    submitted={submitted}
-                />
-                <PaymentForm
-                    values={payment}
-                    onChange={handlePaymentChange}
-                    errors={errors}
-                    submitted={submitted}
-                />
-                <OrderSummary />
-                <button
-                    type="submit"
-                    className="mt-6 w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
-                >
-                    Place Order
-                </button>
-            </form>
+        <div className="relative w-full min-h-screen overflow-y-auto bg-[#EDEDED]">
+            <div className="mx-auto max-w-[1200px] px-4 sm:px-6 py-10">
+                <form onSubmit={handleSubmit} noValidate>
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        <div className="lg:col-span-2 flex flex-col gap-6">
+                            <ShippingForm
+                                values={shipping}
+                                onChange={handleShippingChange}
+                                errors={errors}
+                                submitted={submitted}
+                            />
+                            <PaymentForm
+                                values={payment}
+                                onChange={handlePaymentChange}
+                                errors={errors}
+                                submitted={submitted}
+                            />
+                            <div className="flex flex-col justify-center items-start p-4 gap-2 bg-white rounded-[13px]">
+                                <div className="px-2 pb-6">
+                                    <h2 className="text-[31.25px] leading-[38px] tracking-[0.25em] uppercase text-[#1A1F16]">
+                                        Review Your Bag
+                                    </h2>
+                                </div>
+                                <div className="w-full flex flex-col px-2 pb-4 text-[#60695C] text-[16px]">
+                                    {items.length === 0 ? (
+                                        <span>Your bag is empty.</span>
+                                    ) : (
+                                        <ul className="divide-y divide-gray-200">
+                                            {items.map((item, idx) => (
+                                                <li
+                                                    key={item.id || idx}
+                                                    className="py-2 flex justify-between items-center"
+                                                >
+                                                    <div>
+                                                        <span className="font-semibold text-[#1A1F16]">
+                                                            {item.name}
+                                                        </span>
+                                                        {item.quantity && (
+                                                            <span className="ml-2 text-[#60695C]">
+                                                                x{item.quantity}
+                                                            </span>
+                                                        )}
+                                                    </div>
+                                                    <span className="text-[#1A1F16]">
+                                                        $
+                                                        {item.price?.toFixed
+                                                            ? item.price.toFixed(
+                                                                  2
+                                                              )
+                                                            : item.price}
+                                                    </span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                        <div className="lg:col-span-1 flex flex-col gap-3">
+                            <OrderSummary />
+                            <button
+                                type="button"
+                                onClick={() => window.history.back()}
+                                className="self-start inline-flex items-center justify-center px-4 py-2 border border-[#1A1F16] rounded-[11px] text-[#1A1F16]"
+                            >
+                                Back
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     );
 };
