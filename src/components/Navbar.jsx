@@ -22,6 +22,9 @@ export default function Navbar() {
             <Link to="/contact" className="px-3 py-1 rounded-md text-white bg-indigo-600 hover:bg-indigo-700 transition duration-150">
               Contact
             </Link>
+            <Link to="/cart" className="px-3 py-1 rounded-md text-white bg-green-600 hover:bg-green-700 transition duration-150">
+              Cart
+            </Link>
           </nav>
         </div>
       </div>
