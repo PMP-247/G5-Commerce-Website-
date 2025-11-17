@@ -8,9 +8,9 @@ import {
     Plus,
     ShoppingBag,
 } from "lucide-react";
-import Navbar from "./Navbar";
 import { removeFromCart, updateQuantity } from "../redux/cartSlice";
 import { Link } from "react-router-dom";
+import Sidebar from "./Sidebar";
 
 const ViewCart = () => {
     const dispatch = useDispatch();
@@ -29,14 +29,14 @@ const ViewCart = () => {
         const hasHalfStar = rating % 1 !== 0;
 
         for (let i = 0; i < fullStars; i++) {
-            stars.push(<Star key={`full-${i}`} className="w-4 h-4" />);
+            stars.push(<Star className="w-4 h-4 fill-green-500" />);
         }
         if (hasHalfStar) {
-            stars.push(<StarHalf key="half" className="w-4 h-4" />);
+            stars.push(<StarHalf className="w-4 h-4" />);
         }
         const emptyStars = 5 - Math.ceil(rating);
         for (let i = 0; i < emptyStars; i++) {
-            stars.push(<StarIcon key={`empty-${i}`} className="w-4 h-4" />);
+            stars.push(<StarIcon className="w-4 h-4" />);
         }
         return stars;
     };
@@ -44,8 +44,7 @@ const ViewCart = () => {
     return (
         <div className="min-h-screen w-full flex justify-center items-start bg-[#e3e5ea] py-6 px-4">
             <div className="relative w-full max-w-6xl bg-[#ededed] rounded-[24px] overflow-hidden font-sans shadow-sm">
-                <Navbar />
-
+                <Sidebar />
                 <div className="flex flex-col lg:flex-row">
                     <main className="flex-1 px-8 lg:px-12 pt-12 pb-20">
                         <header className="pb-6">
@@ -53,7 +52,6 @@ const ViewCart = () => {
                                 Check your Bag Items
                             </h2>
                         </header>
-
                         {items.length === 0 ? (
                             <div className="mt-10 flex flex-col items-center justify-center rounded-2xl bg-white/70 border border-dashed border-gray-300 py-16">
                                 <p className="text-lg text-gray-600">
